@@ -1,11 +1,12 @@
 <template>
-    <div>
-        <Button type="primary" size="large" @click="exportData()">
-            <Icon type="ios-download-outline"></Icon>导出</Button>
-        <br>
-        <Table size='small' :columns="columns1" :data="data1" ref="table"></Table>
-        <br>
-    </div>
+  <div>
+    <Button type="primary" size="large" @click="exportData()">
+      <Icon type="ios-download-outline"></Icon>导出
+    </Button>
+    <br />
+    <Table size="small" :columns="columns1" :data="data1" ref="table"></Table>
+    <br />
+  </div>
 </template>
 <script>
 export default {

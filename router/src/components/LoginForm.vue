@@ -1,19 +1,15 @@
 <template>
-    <Form ref="formInline" :model="formInline" :rules="ruleInline">
-        <FormItem prop="user">
-            <Input type="text" v-model="formInline.user" placeholder="Username">
-            <Icon type="ios-person-outline" slot="prepend"></Icon>
-            </Input>
-        </FormItem>
-        <FormItem prop="password">
-            <Input type="password" v-model="formInline.password" placeholder="Password">
-            <Icon type="ios-locked-outline" slot="prepend"></Icon>
-            </Input>
-        </FormItem>
-        <FormItem>
-            <Button type="primary" @click="handleSubmit('formInline')">Signin</Button>
-        </FormItem>
-    </Form>
+  <Form ref="formInline" :model="formInline" :rules="ruleInline">
+    <FormItem prop="user">
+      <Input type="text" v-model="formInline.user" placeholder="账号"></Input>
+    </FormItem>
+    <FormItem prop="password">
+      <Input type="password" v-model="formInline.password" placeholder="密码"></Input>
+    </FormItem>
+    <FormItem class="submit-button">
+      <Button type="primary" @click="handleSubmit('formInline')">登录</Button>
+    </FormItem>
+  </Form>
 </template>
 <script>
 import axios from "axios";
@@ -30,20 +26,14 @@ export default {
         user: [
           {
             required: true,
-            message: "Please fill in the user name",
+            message: "请输入账号",
             trigger: "blur"
           }
         ],
         password: [
           {
             required: true,
-            message: "Please fill in the password.",
-            trigger: "blur"
-          },
-          {
-            type: "string",
-            min: 4,
-            message: "The password length cannot be less than 6 bits",
+            message: "请输入密码",
             trigger: "blur"
           }
         ]
@@ -71,7 +61,6 @@ export default {
             })
             .then(function(response) {
               console.log("收到服务器回复");
-              console.log(response);
               var data = response.data;
               if (data.status == "1") {
                 _this.$Message.success("登录成功!");
@@ -84,8 +73,6 @@ export default {
             .catch(function(error) {
               console.log("失败");
             });
-
-            
         } else {
         }
       });
@@ -94,5 +81,8 @@ export default {
 };
 </script >
 
-<style >
+<style scoped>
+.submit-button {
+  text-align: center;
+}
 </style>

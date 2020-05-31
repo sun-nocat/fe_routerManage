@@ -11,52 +11,58 @@ import EditItem from '@/components/EditItem'
 import ErrorItem from '@/components/ErrorItem'
 import UserItem from '@/components/UserItem'
 import MonitorItem from '@/components/MonitorItem'
+import MailList from '@/components/MailList'
 
 
 Vue.use(Router)
 
 export default new Router({
   routes: [{
-      path: '/',
-      name: 'Login',
-      component: Login
-    }, {
-      path: '/home',
-      name: 'Home',
-      component: Home,
-      children: [ //使用子路由
-        {
-          path: '/vlan621',
-          name: 'MainItem621',
-          component: MainItem621,
-          children: [{
-            path: 'edit',
-            name: 'EditItem',
-            component: EditItem,
-          }]
-        },
-        {
-          path: '/stepitem',
-          name: 'StepsItem',
-          component: StepsItem,
-        },
-        {
-          path: '/erroritem',
-          name: 'ErrorItem',
-          component: ErrorItem,
-        },
-        {
-          path: '/useritem',
-          name: 'UserItem',
-          component: UserItem,
-        },
-        {
-          path: '/monitoritem',
-          name: 'MonitorItem',
-          component: MonitorItem
-        }
-      ]
-    }
+    path: '/',
+    name: 'Login',
+    component: Login
+  }, {
+    path: '/home',
+    name: 'Home',
+    component: Home,
+    children: [ //使用子路由
+      {
+        path: '/vlan621',
+        name: 'MainItem621',
+        component: MainItem621,
+        children: [{
+          path: 'edit',
+          name: 'EditItem',
+          component: EditItem,
+        }]
+      },
+      {
+        path: '/stepitem',
+        name: 'StepsItem',
+        component: StepsItem,
+      },
+      {
+        path: '/erroritem',
+        name: 'ErrorItem',
+        component: ErrorItem,
+      },
+      {
+        path: '/useritem',
+        name: 'UserItem',
+        component: UserItem,
+      },
+      {
+        path: '/monitoritem',
+        name: 'MonitorItem',
+        component: MonitorItem
+      },
+      {
+        path: '/maillist',
+        name: 'MailList',
+        component: MailList
+      }
+    ]
+  }
 
   ]
 })
